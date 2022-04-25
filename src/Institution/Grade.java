@@ -1,15 +1,19 @@
 package Institution;
 
-public class Attendance {
+import java.util.Date;
+
+public class Grade {
     private int ID;
     private int studentID;
     private String subjectName;
-    private Boolean isAttended;
+    private char mark;
+    private Date date;
 
-    public Attendance(int studentID, String subject, Boolean isAttended) {
+    public Grade(int studentID, String subjectName, char mark, Date date) {
         this.studentID = studentID;
-        this.subjectName = subject;
-        this.isAttended = isAttended;
+        this.subjectName = subjectName;
+        this.mark = mark;
+        this.date = date;
     }
 
     public int getID() {
@@ -36,12 +40,19 @@ public class Attendance {
         this.subjectName = subjectName;
     }
 
-
-    public Boolean getAttended() {
-        return isAttended;
+    public char getMark() {
+        return mark;
     }
 
-    public void setAttended(Boolean attended) {
-        isAttended = attended;
+    public void setMark(char mark) {
+        this.mark = mark;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

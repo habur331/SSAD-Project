@@ -2,7 +2,7 @@ package PatternVisitor;
 
 import WorkWithDataBase.AttendanceDB;
 import WorkWithDataBase.GradesDB;
-import WorkWithDataBase.PaymentDB;
+import WorkWithDataBase.PaymentBookDB;
 
 public class ReportByDayVisitor implements Visitor{
     @Override
@@ -16,7 +16,7 @@ public class ReportByDayVisitor implements Visitor{
     }
 
     @Override
-    public void visitPaymentDB(PaymentDB db) {
+    public void visitPaymentDB(PaymentBookDB db) {
 
     }
 }

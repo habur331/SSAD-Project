@@ -1,25 +1,25 @@
 package WorkWithDataBase;
 
-import Institution.Payment;
+import Institution.PaymentBook;
 import PatternVisitor.Element;
 import PatternVisitor.Visitor;
 
 import java.util.Collection;
 import java.util.Date;
 
-public class PaymentDB implements WorkWithDataBase<Payment>, Element {
+public class PaymentBookDB implements WorkWithDataBase<PaymentBook>, Element {
     @Override
-    public Collection<Payment> load(int studentID) {
+    public Collection<PaymentBook> load(int studentID) {
         return null;
     }
 
     @Override
-    public Collection<Payment> load(Date date) {
+    public Collection<PaymentBook> load(Date date) {
         return null;
     }
 
     @Override
-    public void write(Payment newItem) {
+    public void write(PaymentBook newItem) {
 
     }
 
