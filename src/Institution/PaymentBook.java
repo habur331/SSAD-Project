@@ -68,4 +68,24 @@ public class PaymentBook {
     public void setRepaid(Boolean repaid) {
         isRepaid = repaid;
     }
+
+    public void setInvestment(double investment) {
+        this.investment = investment;
+    }
+
+    public Date getRepaymentDate() {
+        return repaymentDate;
+    }
+
+    public void setRepaymentDate(Date repaymentDate) {
+        this.repaymentDate = repaymentDate;
+    }
+
+    public Date getAppointmentDate() {
+        return appointmentDate;
+    }
+
+    public void setAppointmentDate(Date appointmentDate) {
+        this.appointmentDate = appointmentDate;
+    }
 }
