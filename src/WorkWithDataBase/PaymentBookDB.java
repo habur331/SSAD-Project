@@ -37,6 +37,6 @@ public class PaymentBookDB implements WorkWithDataBase<PaymentBook>, Element {
 
     @Override
     public void accept(Visitor visitor) {
-
+        visitor.visitPaymentDB(this);
     }
 }

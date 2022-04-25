@@ -61,7 +61,7 @@ public class Student {
     public void attendClass(String subjectName)
     {
         AttendanceDB db = AttendanceDB.getInstance();
-        Attendance attendance = new Attendance(this.ID, subjectName, true);
+        Attendance attendance = new Attendance(this.ID, subjectName, true,  new GregorianCalendar().getTime());
         db.write(attendance);
     }
 }

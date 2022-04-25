@@ -36,6 +36,6 @@ public class AttendanceDB implements WorkWithDataBase<Attendance>, Element {
 
     @Override
     public void accept(Visitor visitor) {
-
+        visitor.visitAttendanceDB(this);
     }
 }

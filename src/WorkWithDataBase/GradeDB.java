@@ -37,6 +37,6 @@ public class GradeDB implements WorkWithDataBase<Grade>, Element {
 
     @Override
     public void accept(Visitor visitor) {
-
+        visitor.visitGradesDB(this);
     }
 }
