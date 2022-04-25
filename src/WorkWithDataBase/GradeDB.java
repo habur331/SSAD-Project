@@ -7,7 +7,19 @@ import PatternVisitor.Visitor;
 import java.util.Collection;
 import java.util.Date;
 
-public class GradesDB implements WorkWithDataBase<Grade>, Element {
+public class GradeDB implements WorkWithDataBase<Grade>, Element {
+    private static GradeDB instance = null;
+
+    private GradeDB() {}
+
+    public static GradeDB getInstance()
+    {
+        if (instance == null)
+            return new GradeDB();
+        else
+            return instance;
+    }
+
     @Override
     public Collection<Grade> load(int studentID) {
         return null;

@@ -1,12 +1,12 @@
 package PatternVisitor;
 
 import WorkWithDataBase.AttendanceDB;
-import WorkWithDataBase.GradesDB;
+import WorkWithDataBase.GradeDB;
 import WorkWithDataBase.PaymentBookDB;
 
 public class ReportByStudentIDVisitor implements Visitor{
     @Override
-    public void visitGradesDB(GradesDB db) {
+    public void visitGradesDB(GradeDB db) {
 
     }
 

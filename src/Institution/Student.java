@@ -1,6 +1,6 @@
 package Institution;
 import WorkWithDataBase.AttendanceDB;
-import WorkWithDataBase.GradesDB;
+import WorkWithDataBase.GradeDB;
 import WorkWithDataBase.PaymentBookDB;
 
 import java.util.GregorianCalendar;
@@ -16,7 +16,7 @@ public class Student {
         this.person = person;
         this.group = group;
         PaymentBook paymentBook = new PaymentBook(this.ID);
-        PaymentBookDB db = new PaymentBookDB();
+        PaymentBookDB db = PaymentBookDB.getInstance();
         db.write(paymentBook);
     }
 
@@ -46,13 +46,13 @@ public class Student {
 
     public void receiveGrade(String subjectName, char mark){
         Grade grade = new Grade(this.ID, subjectName, mark, new GregorianCalendar().getTime());
-        GradesDB db = new GradesDB();
+        GradeDB db = GradeDB.getInstance();
         db.write(grade);
     }
 
     public void payTuition(double amount)
     {
-        PaymentBookDB db = new PaymentBookDB();
+        PaymentBookDB db = PaymentBookDB.getInstance();
         PaymentBook paymentBook = db.load(this.ID).stream().findFirst().get();
         paymentBook.increaseInvestment(amount);
         db.write(paymentBook);
@@ -60,7 +60,7 @@ public class Student {
 
     public void attendClass(String subjectName)
     {
-        AttendanceDB db = new AttendanceDB();
+        AttendanceDB db = AttendanceDB.getInstance();
         Attendance attendance = new Attendance(this.ID, subjectName, true);
         db.write(attendance);
     }

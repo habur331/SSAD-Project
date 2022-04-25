@@ -8,6 +8,17 @@ import java.util.Collection;
 import java.util.Date;
 
 public class AttendanceDB implements WorkWithDataBase<Attendance>, Element {
+    private static AttendanceDB instance = null;
+
+    private AttendanceDB() {}
+
+    public static AttendanceDB getInstance()
+    {
+        if (instance == null)
+            return new AttendanceDB();
+        else
+            return instance;
+    }
     @Override
     public Collection<Attendance> load(int studentID) {
         return null;

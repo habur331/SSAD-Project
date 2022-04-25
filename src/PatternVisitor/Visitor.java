@@ -1,11 +1,11 @@
 package PatternVisitor;
 
 import WorkWithDataBase.AttendanceDB;
-import WorkWithDataBase.GradesDB;
+import WorkWithDataBase.GradeDB;
 import WorkWithDataBase.PaymentBookDB;
 
 public interface Visitor {
-    void visitGradesDB(GradesDB db);
+    void visitGradesDB(GradeDB db);
     void visitAttendanceDB(AttendanceDB db);
     void visitPaymentDB(PaymentBookDB db);
 }
