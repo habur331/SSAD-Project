@@ -8,25 +8,30 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-public class PaymentBookDB implements WorkWithDataBase<PaymentBook>, Element {
+public class PaymentBookDB implements WorkWithDataBase<PaymentBook>, Element
+{
     private static PaymentBookDB instance = null;
     private final DataBase db = new DataBase();
 
-    private PaymentBookDB() {}
+    private PaymentBookDB()
+    {
+    }
 
     public static PaymentBookDB getInstance()
     {
         if (instance == null)
-            return new PaymentBookDB();
-        else
-            return instance;
+            instance = new PaymentBookDB();
+        return instance;
     }
 
     @Override
-    public Collection<PaymentBook> load(int studentID) {
+    public Collection<PaymentBook> load(int studentID)
+    {
         Collection<PaymentBook> data = new ArrayList<>();
-        for(PaymentBook payment: db.getPaymentBookTable()){
-            if(payment.getStudentID() == studentID){
+        for (PaymentBook payment : db.getPaymentBookTable())
+        {
+            if (payment.getStudentID() == studentID)
+            {
                 data.add(payment);
             }
         }
@@ -34,10 +39,13 @@ public class PaymentBookDB implements WorkWithDataBase<PaymentBook>, Element {
     }
 
     @Override
-    public Collection<PaymentBook> load(Date date) {
+    public Collection<PaymentBook> load(Date date)
+    {
         Collection<PaymentBook> data = new ArrayList<>();
-        for(PaymentBook payment: db.getPaymentBookTable()){
-            if(payment.getAppointmentDate().compareTo(date) <= 0){
+        for (PaymentBook payment : db.getPaymentBookTable())
+        {
+            if (payment.getAppointmentDate().compareTo(date) <= 0)
+            {
                 data.add(payment);
             }
         }
@@ -45,13 +53,15 @@ public class PaymentBookDB implements WorkWithDataBase<PaymentBook>, Element {
     }
 
     @Override
-    public void write(PaymentBook newItem) {
+    public void write(PaymentBook newItem)
+    {
         db.removePaymentBook(newItem);
         db.addPaymentBook(newItem);
     }
 
     @Override
-    public void accept(Visitor visitor) {
+    public void accept(Visitor visitor)
+    {
         visitor.visitPaymentDB(this);
     }
 }
