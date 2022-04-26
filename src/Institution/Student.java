@@ -5,7 +5,7 @@ import WorkWithDataBase.PaymentBookDB;
 import WorkWithDataBase.StudentDB;
 
 import java.util.GregorianCalendar;
-//TODO подумать над названием - т.к это оболочка на год
+
 public class Student {
     private int ID;
     private Person person;

@@ -1,6 +1,6 @@
 import Institution.Person;
 import Institution.Student;
-import Institution.StudentControl;
+import Institution.StudentActivityControl;
 import PatternVisitor.Element;
 import PatternVisitor.ReportByDayVisitor;
 import PatternVisitor.ReportByStudentIDVisitor;
@@ -23,7 +23,7 @@ public class HOD {
         Element attendanceDataBase = AttendanceDB.getInstance();
 
         //
-        // Create Students
+        // 1.Create Students
         //
         Student studentA = new Student(new Person(
                 "Lev",
@@ -46,32 +46,32 @@ public class HOD {
                 new GregorianCalendar(2000, Calendar.OCTOBER, 26).getTime()), 2);
 
         //
-        // Students attend
+        // 2. Students attend
         //
-        StudentControl.markClass(studentA, "SSAD");
-        StudentControl.markClass(studentB, "SSAD");
-        StudentControl.markClass(studentC, "SSAD");
+        StudentActivityControl.markClass(studentA, "SSAD");
+        StudentActivityControl.markClass(studentB, "SSAD");
+        StudentActivityControl.markClass(studentC, "SSAD");
 
         //
-        // Students receive grades
+        // 2. Students receive grades
         //
-        StudentControl.giveGrade(studentA, "SSAD", 'A');
-        StudentControl.giveGrade(studentA, "AGLA", 'C');
-        StudentControl.giveGrade(studentB, "SSAD", 'B');
-        StudentControl.giveGrade(studentC, "SSAD", 'C');
-        StudentControl.giveGrade(studentC, "AGLA", 'C');
-        StudentControl.giveGrade(studentD, "SSAD", 'D');
+        StudentActivityControl.giveGrade(studentA, "SSAD", 'A');
+        StudentActivityControl.giveGrade(studentA, "AGLA", 'C');
+        StudentActivityControl.giveGrade(studentB, "SSAD", 'B');
+        StudentActivityControl.giveGrade(studentC, "SSAD", 'C');
+        StudentActivityControl.giveGrade(studentC, "AGLA", 'C');
+        StudentActivityControl.giveGrade(studentD, "SSAD", 'D');
 
         //
-        // Students pay
+        // 2. Students pay
         //
-        StudentControl.acceptPayment(studentA, 10000);
-        StudentControl.acceptPayment(studentB, 9000.5);
-        StudentControl.acceptPayment(studentC, 100.0);
-        StudentControl.acceptPayment(studentD, 100);
+        StudentActivityControl.acceptPayment(studentA, 10000);
+        StudentActivityControl.acceptPayment(studentB, 9000.5);
+        StudentActivityControl.acceptPayment(studentC, 100.0);
+        StudentActivityControl.acceptPayment(studentD, 100);
 
         //
-        // Report By Student ID
+        // 3. Report By Student ID
         //
         gradeDataBase.accept(new ReportByStudentIDVisitor(studentA.getID()));
         paymentDataBase.accept(new ReportByStudentIDVisitor(studentA.getID()));
@@ -80,7 +80,7 @@ public class HOD {
         paymentDataBase.accept(new ReportByStudentIDVisitor(studentD.getID()));
 
         //
-        // Report By Day
+        // 3. Report By Day
         //
         gradeDataBase.accept(new ReportByDayVisitor(new GregorianCalendar(2022, Calendar.APRIL, 26).getTime()));
         attendanceDataBase.accept(new ReportByDayVisitor(new GregorianCalendar(2022, Calendar.APRIL, 26).getTime()));

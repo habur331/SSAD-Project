@@ -6,7 +6,7 @@ import WorkWithDataBase.PaymentBookDB;
 
 import java.util.GregorianCalendar;
 
-public class StudentControl
+public class StudentActivityControl
 {
     public static void giveGrade(Student student, String subjectName, char mark)
     {
