@@ -1,5 +1,6 @@
 import Institution.Person;
 import Institution.Student;
+import PatternVisitor.Element;
 import PatternVisitor.ReportByDayVisitor;
 import PatternVisitor.ReportByStudentIDVisitor;
 import WorkWithDataBase.AttendanceDB;
@@ -18,9 +19,9 @@ public class HOD {
         //
         // Ours DataBases' Tools
         //
-        GradeDB gradeDataBase = GradeDB.getInstance();
-        PaymentBookDB paymentDataBase = PaymentBookDB.getInstance();
-        AttendanceDB attendanceDataBase = AttendanceDB.getInstance();
+        Element gradeDataBase = GradeDB.getInstance();
+        Element paymentDataBase = PaymentBookDB.getInstance();
+        Element attendanceDataBase = AttendanceDB.getInstance();
 
         //
         // Create Students
