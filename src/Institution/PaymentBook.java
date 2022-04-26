@@ -18,7 +18,7 @@ public class PaymentBook {
 
     public PaymentBook(int studentID) {
         this.studentID = studentID;
-        this.price = 1000;
+        this.price = 10000;
         this.investment = 0;
         this.isRepaid = false;
         this.appointmentDate = new GregorianCalendar().getTime();

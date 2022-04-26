@@ -10,6 +10,7 @@ public class Student {
     private Person person;
     private int group;
 
+    private static int counter = 0;
 
     //студент пересоздаётся каждый год (если непонятно - спроси у Замиры)
     public Student(Person person, int group) {
@@ -18,6 +19,7 @@ public class Student {
         PaymentBook paymentBook = new PaymentBook(this.ID);
         PaymentBookDB db = PaymentBookDB.getInstance();
         db.write(paymentBook);
+        this.ID = counter++;
     }
 
     public Person getPerson() {
