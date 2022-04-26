@@ -4,11 +4,13 @@ import Institution.Attendance;
 import PatternVisitor.Element;
 import PatternVisitor.Visitor;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
 public class AttendanceDB implements WorkWithDataBase<Attendance>, Element {
     private static AttendanceDB instance = null;
+    private final DataBase db = new DataBase();
 
     private AttendanceDB() {}
 
@@ -21,17 +23,30 @@ public class AttendanceDB implements WorkWithDataBase<Attendance>, Element {
     }
     @Override
     public Collection<Attendance> load(int studentID) {
-        return null;
+        Collection<Attendance> data = new ArrayList<>();
+        for(Attendance attendant: db.getAttendanceTable()){
+            if(attendant.getStudentID() == studentID){
+                data.add(attendant);
+            }
+        }
+        return data;
     }
 
     @Override
     public Collection<Attendance> load(Date date) {
-        return null;
+        Collection<Attendance> data = new ArrayList<>();
+        for(Attendance attendant: db.getAttendanceTable()){
+            if(attendant.getDate().equals(date)){
+                data.add(attendant);
+            }
+        }
+        return data;
     }
 
     @Override
     public void write(Attendance newItem) {
-
+        db.removeAttendance(newItem);
+        db.addAttendance(newItem);
     }
 
     @Override
