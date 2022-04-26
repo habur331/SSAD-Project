@@ -8,6 +8,7 @@ import WorkWithDataBase.StudentDB;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class HOD {
 
@@ -27,22 +28,22 @@ public class HOD {
         Student studentA = new Student(new Person(
                 "Lev",
                 "Ivanov",
-                new Date(2000, Calendar.MARCH, 3)), 1);
+                new GregorianCalendar(2000, Calendar.MARCH, 3).getTime()), 1);
 
         Student studentB = new Student(new Person(
                 "Peter",
                 "Orlov",
-                new Date(2000, Calendar.DECEMBER, 7)), 1);
+                new GregorianCalendar(2000, Calendar.DECEMBER, 7).getTime()), 1);
 
         Student studentC = new Student(new Person(
                 "Artem",
                 "Latyshev",
-                new Date(2001, Calendar.JULY, 15)), 2);
+                new GregorianCalendar(2001, Calendar.JULY, 15).getTime()), 2);
 
         Student studentD = new Student(new Person(
                 "Boris",
                 "Vorontsov",
-                new Date(2000, Calendar.OCTOBER, 26)), 2);
+                new GregorianCalendar(2000, Calendar.OCTOBER, 26).getTime()), 2);
 
         //
         // Примеры посещения
@@ -63,16 +64,16 @@ public class HOD {
         // Примеры оплаты
         //
         // TODO: падает
-        studentA.payTuition(10000);
-        studentB.payTuition(9000.5);
-        studentC.payTuition(100.0);
-        studentD.payTuition(1000000);
+//        studentA.payTuition(10000);
+//        studentB.payTuition(9000.5);
+//        studentC.payTuition(100.0);
+//        studentD.payTuition(1000000);
 
         //
         // Отчетность
         //
         gradeDataBase.accept(new ReportByStudentIDVisitor(studentA.getID()));
-        attendanceDataBase.accept(new ReportByDayVisitor(new Date()));
-
+        attendanceDataBase.accept(new ReportByStudentIDVisitor(studentB.getID()));
+        paymentDataBase.accept(new ReportByStudentIDVisitor(studentD.getID()));
     }
 }
