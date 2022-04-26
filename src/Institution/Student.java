@@ -2,6 +2,7 @@ package Institution;
 import WorkWithDataBase.AttendanceDB;
 import WorkWithDataBase.GradeDB;
 import WorkWithDataBase.PaymentBookDB;
+import WorkWithDataBase.StudentDB;
 
 import java.util.GregorianCalendar;
 //TODO подумать над названием - т.к это оболочка на год
@@ -16,10 +17,12 @@ public class Student {
     public Student(Person person, int group) {
         this.person = person;
         this.group = group;
+        this.ID = counter++;
+        StudentDB studentDB = StudentDB.getInstance();
+        studentDB.write(this);
         PaymentBook paymentBook = new PaymentBook(this.ID);
         PaymentBookDB db = PaymentBookDB.getInstance();
         db.write(paymentBook);
-        this.ID = counter++;
     }
 
     public Person getPerson() {
@@ -50,6 +53,7 @@ public class Student {
         Grade grade = new Grade(this.ID, subjectName, mark, new GregorianCalendar().getTime());
         GradeDB db = GradeDB.getInstance();
         db.write(grade);
+        attendClass(subjectName);
     }
 
     public void payTuition(double amount)

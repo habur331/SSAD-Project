@@ -13,7 +13,18 @@ public class DataBase {
     private final Collection<Grade> GradeTable = new ArrayList<>();
     private final Collection<PaymentBook> PaymentBookTable = new ArrayList<>();
     private final Collection<Student> StudentTable = new ArrayList<>();
+    private static DataBase instance = null;
 
+
+    public static DataBase getInstance()
+    {
+        if(instance == null)
+            instance = new DataBase();
+        return instance;
+    }
+
+    private DataBase() {
+    }
 
     public Collection<Attendance> getAttendanceTable(){
         return AttendanceTable;

@@ -1,7 +1,7 @@
 # SSAD-Project 
 team members B21-01:
 
-Sadi Toirov s.tairov@innopolis.university  
+Sadi Toirov s.toirov@innopolis.university         
 Ruslan Khairov r.khairov@innopolis.university             
 Maksim Insapov m.insapov@innopolis.university        
 Zamira Galyautdinova z.galyautdinova@innopolis.university 

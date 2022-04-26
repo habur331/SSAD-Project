@@ -4,13 +4,15 @@ import Institution.Grade;
 import PatternVisitor.Element;
 import PatternVisitor.Visitor;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 
 public class GradeDB implements WorkWithDataBase<Grade>, Element {
     private static GradeDB instance = null;
-    private final DataBase db = new DataBase();
+    private final DataBase db = DataBase.getInstance();
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
     private GradeDB() {}
 
@@ -37,7 +39,7 @@ public class GradeDB implements WorkWithDataBase<Grade>, Element {
     public Collection<Grade> load(Calendar date) {
         Collection<Grade> data = new ArrayList<>();
         for(Grade grade: db.getGradeTable()){
-            if(grade.getDate().equals(date)){
+            if(sdf.format(grade.getDate().getTime()).equals(sdf.format(date.getTime()))){
                 data.add(grade);
             }
         }

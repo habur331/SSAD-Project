@@ -1,4 +1,5 @@
-import Institution.*;
+import Institution.Person;
+import Institution.Student;
 import PatternVisitor.ReportByDayVisitor;
 import PatternVisitor.ReportByStudentIDVisitor;
 import WorkWithDataBase.AttendanceDB;
@@ -53,27 +54,38 @@ public class HOD {
         studentC.attendClass("SSAD");
 
         //
-        // Примеры оценок
+        // Students receive grades
         //
         studentA.receiveGrade("SSAD", 'A');
+        studentA.receiveGrade("AGLA", 'C');
         studentB.receiveGrade("SSAD", 'B');
         studentC.receiveGrade("SSAD", 'C');
+        studentC.receiveGrade("AGLA", 'C');
         studentD.receiveGrade("SSAD", 'D');
 
         //
-        // Примеры оплаты
+        // Students pay
         //
-        // TODO: падает
-//        studentA.payTuition(10000);
-//        studentB.payTuition(9000.5);
-//        studentC.payTuition(100.0);
-//        studentD.payTuition(1000000);
+        studentA.payTuition(10000);
+        studentB.payTuition(9000.5);
+        studentC.payTuition(100.0);
+        studentD.payTuition(100);
 
         //
-        // Отчетность
+        // Report By Student ID
         //
         gradeDataBase.accept(new ReportByStudentIDVisitor(studentA.getID()));
+        paymentDataBase.accept(new ReportByStudentIDVisitor(studentA.getID()));
         attendanceDataBase.accept(new ReportByStudentIDVisitor(studentB.getID()));
+        attendanceDataBase.accept(new ReportByStudentIDVisitor(studentC.getID()));
         paymentDataBase.accept(new ReportByStudentIDVisitor(studentD.getID()));
+
+        //
+        // Report By Day
+        //
+        gradeDataBase.accept(new ReportByDayVisitor(new GregorianCalendar(2022, Calendar.APRIL, 26).getTime()));
+        attendanceDataBase.accept(new ReportByDayVisitor(new GregorianCalendar(2022, Calendar.APRIL, 26).getTime()));
+        paymentDataBase.accept(new ReportByDayVisitor(new GregorianCalendar(2022, Calendar.APRIL, 26).getTime()));
+
     }
 }

@@ -11,7 +11,7 @@ public class StudentDB implements WorkWithDataBase<Student>
 {
 
     private static StudentDB instance = null;
-    private final DataBase db = new DataBase();
+    private final DataBase db = DataBase.getInstance();
 
     private StudentDB() {}
 

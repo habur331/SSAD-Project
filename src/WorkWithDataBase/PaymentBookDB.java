@@ -4,6 +4,7 @@ import Institution.PaymentBook;
 import PatternVisitor.Element;
 import PatternVisitor.Visitor;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
@@ -11,7 +12,8 @@ import java.util.Collection;
 public class PaymentBookDB implements WorkWithDataBase<PaymentBook>, Element
 {
     private static PaymentBookDB instance = null;
-    private final DataBase db = new DataBase();
+    private final DataBase db = DataBase.getInstance();
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
     private PaymentBookDB()
     {
@@ -44,7 +46,7 @@ public class PaymentBookDB implements WorkWithDataBase<PaymentBook>, Element
         Collection<PaymentBook> data = new ArrayList<>();
         for (PaymentBook payment : db.getPaymentBookTable())
         {
-            if (payment.getAppointmentDate().compareTo(date) <= 0)
+            if (sdf.format(payment.getAppointmentDate().getTime()).equals(sdf.format(date.getTime())))
             {
                 data.add(payment);
             }
