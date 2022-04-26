@@ -5,8 +5,8 @@ import PatternVisitor.Element;
 import PatternVisitor.Visitor;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 
 public class PaymentBookDB implements WorkWithDataBase<PaymentBook>, Element
 {
@@ -39,7 +39,7 @@ public class PaymentBookDB implements WorkWithDataBase<PaymentBook>, Element
     }
 
     @Override
-    public Collection<PaymentBook> load(Date date)
+    public Collection<PaymentBook> load(Calendar date)
     {
         Collection<PaymentBook> data = new ArrayList<>();
         for (PaymentBook payment : db.getPaymentBookTable())

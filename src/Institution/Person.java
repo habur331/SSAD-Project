@@ -1,17 +1,20 @@
 package Institution;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Person {
     private int ID;
-    private String Name;
-    private String LastName;
-    private Date birthday;
+    private final String Name;
+    private final String LastName;
+    private final Calendar birthday;
 
     public Person(String name, String lastName, Date birthday) {
         Name = name;
         LastName = lastName;
-        this.birthday = birthday;
+        this.birthday = new GregorianCalendar();
+        this.birthday.setTime(birthday);
     }
 
     public int getID() {

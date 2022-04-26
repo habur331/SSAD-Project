@@ -8,15 +8,18 @@ import WorkWithDataBase.GradeDB;
 import WorkWithDataBase.PaymentBookDB;
 import WorkWithDataBase.StudentDB;
 
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class ReportByDayVisitor implements Visitor {
 
-    private Date date;
+    private final Calendar date;
 
     public ReportByDayVisitor(Date date) {
-        this.date = date;
+        this.date = new GregorianCalendar();
+        this.date.setTime(date);
     }
 
     @Override

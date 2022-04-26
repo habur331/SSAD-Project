@@ -1,10 +1,10 @@
 package WorkWithDataBase;
 
+import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 
 public interface WorkWithDataBase <T>{
     Collection<T> load(int studentID);
-    Collection<T> load(Date date);
+    Collection<T> load(Calendar date);
     void write(T newItem);
 }

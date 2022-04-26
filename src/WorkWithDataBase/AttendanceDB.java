@@ -5,8 +5,8 @@ import PatternVisitor.Element;
 import PatternVisitor.Visitor;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 
 public class AttendanceDB implements WorkWithDataBase<Attendance>, Element
 {
@@ -39,7 +39,7 @@ public class AttendanceDB implements WorkWithDataBase<Attendance>, Element
     }
 
     @Override
-    public Collection<Attendance> load(Date date)
+    public Collection<Attendance> load(Calendar date)
     {
         Collection<Attendance> data = new ArrayList<>();
         for (Attendance attendant : db.getAttendanceTable())

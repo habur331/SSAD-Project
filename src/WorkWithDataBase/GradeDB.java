@@ -5,8 +5,8 @@ import PatternVisitor.Element;
 import PatternVisitor.Visitor;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 
 public class GradeDB implements WorkWithDataBase<Grade>, Element {
     private static GradeDB instance = null;
@@ -17,8 +17,8 @@ public class GradeDB implements WorkWithDataBase<Grade>, Element {
     public static GradeDB getInstance()
     {
         if (instance == null)
-            return new GradeDB();
-        else
+            instance = new GradeDB();
+
             return instance;
     }
 
@@ -34,7 +34,7 @@ public class GradeDB implements WorkWithDataBase<Grade>, Element {
     }
 
     @Override
-    public Collection<Grade> load(Date date) {
+    public Collection<Grade> load(Calendar date) {
         Collection<Grade> data = new ArrayList<>();
         for(Grade grade: db.getGradeTable()){
             if(grade.getDate().equals(date)){

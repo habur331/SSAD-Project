@@ -4,8 +4,8 @@ import Institution.Student;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 
 public class StudentDB implements WorkWithDataBase<Student>
 {
@@ -33,7 +33,7 @@ public class StudentDB implements WorkWithDataBase<Student>
     }
 
     @Override
-    public Collection<Student> load(Date date) {
+    public Collection<Student> load(Calendar date) {
         // не нужно имплементировать
         throw new NotImplementedException();
     }

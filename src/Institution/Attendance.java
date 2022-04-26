@@ -1,19 +1,22 @@
 package Institution;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Attendance {
     private int ID;
     private int studentID;
     private String subjectName;
     private Boolean isAttended;
-    private Date date;
+    private final Calendar date;
 
     public Attendance(int studentID, String subject, Boolean isAttended, Date date) {
         this.studentID = studentID;
         this.subjectName = subject;
         this.isAttended = isAttended;
-        this.date = date;
+        this.date = new GregorianCalendar();
+        this.date.setTime(date);
     }
 
     public int getID() {
@@ -49,11 +52,11 @@ public class Attendance {
         isAttended = attended;
     }
 
-    public Date getDate() {
+    public Calendar getDate() {
         return date;
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        this.date.setTime(date);
     }
 }
