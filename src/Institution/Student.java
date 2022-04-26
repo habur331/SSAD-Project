@@ -10,10 +10,9 @@ public class Student {
     private int ID;
     private Person person;
     private int group;
-
     private static int counter = 0;
 
-    //студент пересоздаётся каждый год (если непонятно - спроси у Замиры)
+
     public Student(Person person, int group) {
         this.person = person;
         this.group = group;
@@ -27,10 +26,6 @@ public class Student {
 
     public Person getPerson() {
         return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
     }
 
     public int getGroup() {

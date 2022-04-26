@@ -6,8 +6,6 @@ import java.util.GregorianCalendar;
 
 public class Grade
 {
-
-    private int ID;
     private int studentID;
     private String subjectName;
     private char mark;
@@ -22,24 +20,9 @@ public class Grade
         this.date.setTime(date);
     }
 
-    public int getID()
-    {
-        return ID;
-    }
-
-    public void setID(int ID)
-    {
-        this.ID = ID;
-    }
-
     public int getStudentID()
     {
         return studentID;
-    }
-
-    public void setStudentID(int studentID)
-    {
-        this.studentID = studentID;
     }
 
     public String getSubjectName()
@@ -47,19 +30,9 @@ public class Grade
         return subjectName;
     }
 
-    public void setSubjectName(String subjectName)
-    {
-        this.subjectName = subjectName;
-    }
-
     public char getMark()
     {
         return mark;
-    }
-
-    public void setMark(char mark)
-    {
-        this.mark = mark;
     }
 
     public Calendar getDate()
