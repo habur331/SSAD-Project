@@ -16,15 +16,14 @@ public class HOD {
     // Демонстрация
     public static void main(String[] args) {
         //
-        // Получаем бд
+        // Ours DataBases' Tools
         //
         GradeDB gradeDataBase = GradeDB.getInstance();
-        StudentDB studentDataBase = StudentDB.getInstance();
         PaymentBookDB paymentDataBase = PaymentBookDB.getInstance();
         AttendanceDB attendanceDataBase = AttendanceDB.getInstance();
 
         //
-        // Примеры студентов
+        // Create Students
         //
         Student studentA = new Student(new Person(
                 "Lev",
@@ -47,7 +46,7 @@ public class HOD {
                 new GregorianCalendar(2000, Calendar.OCTOBER, 26).getTime()), 2);
 
         //
-        // Примеры посещения
+        // Students attend
         //
         studentA.attendClass("SSAD");
         studentB.attendClass("SSAD");
