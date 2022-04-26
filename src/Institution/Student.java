@@ -43,26 +43,4 @@ public class Student {
     public void setID(int ID) {
         this.ID = ID;
     }
-
-    public void receiveGrade(String subjectName, char mark){
-        Grade grade = new Grade(this.ID, subjectName, mark, new GregorianCalendar().getTime());
-        GradeDB db = GradeDB.getInstance();
-        db.write(grade);
-        attendClass(subjectName);
-    }
-
-    public void payTuition(double amount)
-    {
-        PaymentBookDB db = PaymentBookDB.getInstance();
-        PaymentBook paymentBook = db.load(this.ID).stream().findFirst().get();
-        paymentBook.increaseInvestment(amount);
-        db.write(paymentBook);
-    }
-
-    public void attendClass(String subjectName)
-    {
-        AttendanceDB db = AttendanceDB.getInstance();
-        Attendance attendance = new Attendance(this.ID, subjectName, true,  new GregorianCalendar().getTime());
-        db.write(attendance);
-    }
 }

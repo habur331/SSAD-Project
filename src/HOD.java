@@ -1,15 +1,14 @@
 import Institution.Person;
 import Institution.Student;
+import Institution.StudentControl;
 import PatternVisitor.Element;
 import PatternVisitor.ReportByDayVisitor;
 import PatternVisitor.ReportByStudentIDVisitor;
 import WorkWithDataBase.AttendanceDB;
 import WorkWithDataBase.GradeDB;
 import WorkWithDataBase.PaymentBookDB;
-import WorkWithDataBase.StudentDB;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class HOD {
@@ -49,27 +48,27 @@ public class HOD {
         //
         // Students attend
         //
-        studentA.attendClass("SSAD");
-        studentB.attendClass("SSAD");
-        studentC.attendClass("SSAD");
+        StudentControl.markClass(studentA, "SSAD");
+        StudentControl.markClass(studentB, "SSAD");
+        StudentControl.markClass(studentC, "SSAD");
 
         //
         // Students receive grades
         //
-        studentA.receiveGrade("SSAD", 'A');
-        studentA.receiveGrade("AGLA", 'C');
-        studentB.receiveGrade("SSAD", 'B');
-        studentC.receiveGrade("SSAD", 'C');
-        studentC.receiveGrade("AGLA", 'C');
-        studentD.receiveGrade("SSAD", 'D');
+        StudentControl.giveGrade(studentA, "SSAD", 'A');
+        StudentControl.giveGrade(studentA, "AGLA", 'C');
+        StudentControl.giveGrade(studentB, "SSAD", 'B');
+        StudentControl.giveGrade(studentC, "SSAD", 'C');
+        StudentControl.giveGrade(studentC, "AGLA", 'C');
+        StudentControl.giveGrade(studentD, "SSAD", 'D');
 
         //
         // Students pay
         //
-        studentA.payTuition(10000);
-        studentB.payTuition(9000.5);
-        studentC.payTuition(100.0);
-        studentD.payTuition(100);
+        StudentControl.acceptPayment(studentA, 10000);
+        StudentControl.acceptPayment(studentB, 9000.5);
+        StudentControl.acceptPayment(studentC, 100.0);
+        StudentControl.acceptPayment(studentD, 100);
 
         //
         // Report By Student ID
