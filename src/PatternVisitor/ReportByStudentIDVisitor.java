@@ -51,7 +51,7 @@ public class ReportByStudentIDVisitor implements Visitor {
     }
 
     private void printTitle(String titlePart) {
-        System.out.println("\n\n--------------------" + titlePart + " Report for Student" + student.get().getPerson().getName() + " " + student.get().getPerson().getLastName() + "--------------------------\n");
+        System.out.println("\n\n--------------------" + titlePart + " Report for Student " + student.get().getPerson().getName() + " " + student.get().getPerson().getLastName() + "--------------------------\n");
 
     }
 }
