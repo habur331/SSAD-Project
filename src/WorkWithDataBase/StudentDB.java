@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 
-public class StudentDB implements WorkWithDataBase<Student>
-{
+public class StudentDB implements WorkWithDataBase<Student> {
 
     private static StudentDB instance = null;
     private final DataBase db = DataBase.getInstance();
 
-    private StudentDB() {}
+    private StudentDB() {
+    }
 
     public static StudentDB getInstance() {
         if (instance == null)
@@ -24,8 +24,8 @@ public class StudentDB implements WorkWithDataBase<Student>
     @Override
     public Collection<Student> load(int studentID) {
         Collection<Student> data = new ArrayList<>();
-        for(Student student: db.getStudentTable()){
-            if(student.getID() == studentID){
+        for (Student student : db.getStudentTable()) {
+            if (student.getID() == studentID) {
                 data.add(student);
             }
         }

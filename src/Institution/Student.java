@@ -1,10 +1,7 @@
 package Institution;
-import WorkWithDataBase.AttendanceDB;
-import WorkWithDataBase.GradeDB;
+
 import WorkWithDataBase.PaymentBookDB;
 import WorkWithDataBase.StudentDB;
-
-import java.util.GregorianCalendar;
 
 public class Student {
     private int ID;

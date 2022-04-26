@@ -10,14 +10,13 @@ import WorkWithDataBase.PaymentBookDB;
 import WorkWithDataBase.StudentDB;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Collection;
 import java.util.Optional;
 
 public class ReportByStudentIDVisitor implements Visitor {
 
     private Optional<Student> student;
-    private  SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
     public ReportByStudentIDVisitor(int studentId) {
         this.student = StudentDB.getInstance().load(studentId).stream().findFirst();
@@ -49,7 +48,7 @@ public class ReportByStudentIDVisitor implements Visitor {
             Collection<PaymentBook> paymentBook = PaymentBookDB.getInstance().load(student.get().getID());
             printTitle("PaymentBook");
 
-            paymentBook.forEach(i -> System.out.println( !i.getRepaid() ?
+            paymentBook.forEach(i -> System.out.println(!i.getRepaid() ?
                     (" has dept " + (i.getPrice() - i.getInvestment())) : ("paid the bill in full " + sdf.format(i.getRepaymentDate().getTime()))));
         }
     }

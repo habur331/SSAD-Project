@@ -14,21 +14,21 @@ public class GradeDB implements WorkWithDataBase<Grade>, Element {
     private final DataBase db = DataBase.getInstance();
     private SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
-    private GradeDB() {}
+    private GradeDB() {
+    }
 
-    public static GradeDB getInstance()
-    {
+    public static GradeDB getInstance() {
         if (instance == null)
             instance = new GradeDB();
 
-            return instance;
+        return instance;
     }
 
     @Override
     public Collection<Grade> load(int studentID) {
         Collection<Grade> data = new ArrayList<>();
-        for(Grade grade: db.getGradeTable()){
-            if(grade.getStudentID() == studentID){
+        for (Grade grade : db.getGradeTable()) {
+            if (grade.getStudentID() == studentID) {
                 data.add(grade);
             }
         }
@@ -38,8 +38,8 @@ public class GradeDB implements WorkWithDataBase<Grade>, Element {
     @Override
     public Collection<Grade> load(Calendar date) {
         Collection<Grade> data = new ArrayList<>();
-        for(Grade grade: db.getGradeTable()){
-            if(sdf.format(grade.getDate().getTime()).equals(sdf.format(date.getTime()))){
+        for (Grade grade : db.getGradeTable()) {
+            if (sdf.format(grade.getDate().getTime()).equals(sdf.format(date.getTime()))) {
                 data.add(grade);
             }
         }

@@ -28,7 +28,7 @@ public class ReportByDayVisitor implements Visitor {
         printTitle("Grades");
         grades.forEach(i -> {
             Optional<Student> student = StudentDB.getInstance().load(i.getStudentID()).stream().findFirst();
-            student.ifPresent(value -> System.out.println(value.getPerson().getName() + value.getPerson().getLastName() + " has received " + i.getMark() + " on " + i.getSubjectName()));
+            student.ifPresent(value -> System.out.println(value.getPerson().getName() + " " + value.getPerson().getLastName() + " has received " + i.getMark() + " on " + i.getSubjectName()));
         });
     }
 
@@ -38,7 +38,7 @@ public class ReportByDayVisitor implements Visitor {
         printTitle("Attendance");
         attendances.forEach(i -> {
             Optional<Student> student = StudentDB.getInstance().load(i.getStudentID()).stream().findFirst();
-            student.ifPresent(value -> System.out.println(value.getPerson().getName() + value.getPerson().getLastName() + (i.getAttended() ? " were present " : " were absent ") + " on " + i.getSubjectName()));
+            student.ifPresent(value -> System.out.println(value.getPerson().getName() + " " + value.getPerson().getLastName() + (i.getAttended() ? " were present " : " were absent ") + " on " + i.getSubjectName()));
         });
     }
 
@@ -48,7 +48,7 @@ public class ReportByDayVisitor implements Visitor {
         printTitle("PaymentBook");
         paymentBook.forEach(i -> {
             Optional<Student> student = StudentDB.getInstance().load(i.getStudentID()).stream().findFirst();
-            student.ifPresent(value -> System.out.println(value.getPerson().getName() + value.getPerson().getLastName() + (!i.getRepaid() ? (" has dept " + (i.getPrice() - i.getInvestment())) : ("paid the bill in full on " + sdf.format(i.getRepaymentDate().getTime())))));
+            student.ifPresent(value -> System.out.println(value.getPerson().getName() + " " + value.getPerson().getLastName() + (!i.getRepaid() ? (" has dept " + (i.getPrice() - i.getInvestment())) : ("paid the bill in full on " + sdf.format(i.getRepaymentDate().getTime())))));
         });
     }
 
